@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xdl-pV-FsZ">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FlickDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7oB-5D-o7K">
+                                <rect key="frame" x="186" y="169" width="228" height="262"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="justTestDemo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRb-Ou-Sz8">
+                                        <rect key="frame" x="61.5" y="8" width="105" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="Q1j-Zh-zyv">
+                                        <rect key="frame" x="0.0" y="37" width="228" height="225"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="225" id="IeN-GM-ftn"/>
+                                            <constraint firstAttribute="width" constant="228" id="PeI-5e-m7T"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="228" id="DJi-NP-qa2"/>
+                                    <constraint firstItem="Q1j-Zh-zyv" firstAttribute="width" secondItem="7oB-5D-o7K" secondAttribute="width" id="PON-Ic-uYa"/>
+                                    <constraint firstItem="tRb-Ou-Sz8" firstAttribute="centerX" secondItem="7oB-5D-o7K" secondAttribute="centerX" id="Yrf-ni-rGT"/>
+                                    <constraint firstItem="tRb-Ou-Sz8" firstAttribute="top" secondItem="7oB-5D-o7K" secondAttribute="top" constant="8" id="cAe-iu-SBv"/>
+                                    <constraint firstItem="Q1j-Zh-zyv" firstAttribute="centerX" secondItem="tRb-Ou-Sz8" secondAttribute="centerX" id="dFg-m1-ZZC"/>
+                                    <constraint firstAttribute="height" constant="262" id="hYQ-9r-3mB"/>
+                                    <constraint firstItem="Q1j-Zh-zyv" firstAttribute="top" secondItem="tRb-Ou-Sz8" secondAttribute="bottom" constant="8" id="lpT-y8-Zr2"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.5" green="0.6457709278691276" blue="0.95847315436241609" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="7oB-5D-o7K" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="e7w-ee-hpR"/>
+                            <constraint firstItem="7oB-5D-o7K" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mtd-yb-nh1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="flickView" destination="7oB-5D-o7K" id="A9g-l3-iX0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="389"/>
+        </scene>
+        <!--Test View Controller-->
+        <scene sceneID="Tdy-pY-GDL">
+            <objects>
+                <viewController id="hEu-c5-Ykl" customClass="TestViewController" customModule="FlickDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="u39-l1-Vsp"/>
+                        <viewControllerLayoutGuide type="bottom" id="xiw-MD-f9A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h7G-AU-682">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6HL-mr-aW5" customClass="KolodaView" customModule="Koloda">
+                                <rect key="frame" x="188" y="165" width="224" height="270"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="224" id="5j2-K5-UXZ"/>
+                                    <constraint firstAttribute="height" constant="270" id="Jo8-PN-dT3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6HL-mr-aW5" firstAttribute="centerX" secondItem="h7G-AU-682" secondAttribute="centerX" id="KG3-k8-nDW"/>
+                            <constraint firstItem="6HL-mr-aW5" firstAttribute="centerY" secondItem="h7G-AU-682" secondAttribute="centerY" id="vdH-jS-M21"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="flickView" destination="6HL-mr-aW5" id="Xic-4v-91B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tG2-Lr-ncy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="338" y="1081"/>
+        </scene>
+        <!--Rewrite View Controller-->
+        <scene sceneID="5Mi-ky-dQR">
+            <objects>
+                <viewController id="xdl-pV-FsZ" customClass="RewriteViewController" customModule="FlickDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dHW-XG-Xr3"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mrr-al-uUJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8uj-mt-0pn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tax-JT-YMi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="338" y="1818"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="location" width="150" height="150"/>
+    </resources>
+</document>
