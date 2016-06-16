@@ -23,6 +23,8 @@ class LayoverView: UIView {
     self.addSubview(imageview)
   }
   
+  
+  //MARK:- judge gesture left or right
   func setMode(mode:GestureDirection){
     switch mode{
     case .Left:

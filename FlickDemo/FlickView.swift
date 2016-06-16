@@ -11,17 +11,19 @@ import SnapKit
 
 protocol CardSource {
   func removeCards(tag:Int,likeOrNot:Bool)
+  func postScaleToBackgroundView(scale:CGFloat)
 }
 
 class FlickView: UIView {
   
   var imageView = UIImageView()
   var label = UILabel()
-  var layView: LayoverView!
+  var layView = LayoverView()
   var panGesture:UIPanGestureRecognizer!
   var orginPoint:CGPoint!
   var distanceToPush:CGFloat = 120
   var datasource:CardSource!
+  var scaleRatio:CGFloat = 0.95
   
   
   override init(frame: CGRect) {
@@ -35,11 +37,14 @@ class FlickView: UIView {
   }
   
   func setUpView(){
-    self.addSubview(imageView)
-    self.layer.masksToBounds = true
-    self.layer.cornerRadius = 3
-    self.backgroundColor = UIColor.groupTableViewBackgroundColor()
+    addSubview(imageView)
+    layer.masksToBounds = true
+    layer.cornerRadius = 3
+    layer.borderWidth = 1
+    layer.borderColor = UIColor.lightGrayColor().CGColor
+    backgroundColor = UIColor.groupTableViewBackgroundColor()
     imageView.snp_makeConstraints { (make) in
+      make.bottom.equalTo(self).offset(-40)
       make.left.top.equalTo(self).offset(20)
       make.right.equalTo(self).offset(-20)
     }
@@ -49,12 +54,15 @@ class FlickView: UIView {
     label.snp_makeConstraints { (make) in
       make.left.right.bottom.equalTo(self)
       make.top.equalTo(imageView.snp_bottom)
-      make.height.equalTo(40)
+      // make.height.equalTo(40)
     }
     
-    layView = LayoverView(frame: CGRectMake(0,0,200,100))
-    
     self.addSubview(layView)
+    
+    layView.snp_makeConstraints { (make) in
+      make.top.left.right.equalTo(self)
+      make.height.equalTo(100)
+    }
   }
   
   func setPanGesture(){
@@ -80,9 +88,13 @@ class FlickView: UIView {
       let transform = CGAffineTransformMakeRotation(rotationAngle)
       let scaleTransform = CGAffineTransformScale(transform, scale, scale)
       self.transform = scaleTransform
+      
+      let  scaleForBakcgroundView = min(max(fabs(location.x/(distanceToPush*20))+scaleRatio,scaleRatio),0.97)
+      datasource.postScaleToBackgroundView(scaleForBakcgroundView)
       updateLayoverView(location.x)
     case .Ended:
       pendViewStatus(location)
+      datasource.postScaleToBackgroundView(scaleRatio)
     default: break
     }
   }
@@ -113,6 +125,8 @@ class FlickView: UIView {
     }
   }
   
+  
+  //MARK: you can do something in Below Func
   func leftAction(distance:CGPoint){
     UIView.animateWithDuration(0.5, animations: {
       self.center = CGPointMake(1000,distance.y*1000/distance.x)
