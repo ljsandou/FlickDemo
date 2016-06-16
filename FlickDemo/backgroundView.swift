@@ -78,7 +78,7 @@ class backgroundView: UIView,CardSource{
     for i in 0..<loadedCards.count - 1{
       let scaleValue = CGFloat(pow(Double(scale), Double(i+1)))
       let transform = CGAffineTransformMakeScale(scaleValue,scaleValue)
-      self.loadedCards[i+1].transform = CGAffineTransformTranslate(transform, 0, CGFloat(i+1)*scale*15)
+      self.loadedCards[i+1].transform = CGAffineTransformTranslate(transform, 0, CGFloat(i+1)*15*scaleValue)
     }
   }
   
